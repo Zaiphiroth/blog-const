@@ -3,57 +3,64 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+
+// Obtiene todas las tareas/entradas del blog ordenadas si es necesario
+const posts = await getCollection('blog');
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to
-				build a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your{' '}
-				<code>astro.config.mjs</code> file. You can customize your setup with{' '}
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like
-				Tailwind, React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>
-					Edit this page in <code>src/pages/index.astro</code>
-				</li>
-				<li>
-					Edit the site header items in <code>src/components/Header.astro</code>
-				</li>
-				<li>
-					Add your name to the footer in <code>src/components/Footer.astro</code>
-				</li>
-				<li>
-					Check out the included blog posts in <code>src/content/blog/</code>
-				</li>
-				<li>
-					Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code>
-				</li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to{' '}
-				<a href="https://docs.astro.build/">read the docs</a> or{' '}
-				<a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out{' '}
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a> by{' '}
-				<a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+<html lang="es">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <Header />
+        <main>
+            <h2>Bitácora de Reflexiones y Tareas</h2>
+            <p>
+              Estas son mis tareas para Constitución política.
+			  El uso de IA fue como estilografo y para parcialmente la creación de la pagina
+			  espero sea de su total agrado.
+            </p>
+
+            <h2>Índice de Tareas</h2>
+            <ul>
+                <li>
+                    <a href="/blog/preambulo/">Tarea 1: Preámbulo y Estructura de la Constitución de 1991</a>
+                </li>
+                <li>
+                    <a href="/blog/esfera/">Tarea 2: Esfera Pública y Esfera Privada</a>
+                </li>
+                <li>
+                    <a href="/blog/ambiente/">Tarea 3: Medioambiente, Museo Nacional y Chiribiquete</a>
+                </li>
+                <li>
+                    <a href="/blog/musica/">Tarea 4: Música y más en Colombia (Joe Arroyo y Octavio Mesa)</a>
+                </li>
+                <li>
+                    <a href="/blog/literatura/">Tarea 5: Literatura ("Espuma y nada más" y Mario Mendoza)</a>
+                </li>
+                <li>
+                    <a href="/blog/mecanismos/">Tarea 6: Mecanismos de Protección de Derechos Humanos</a>
+                </li>
+                <li>
+                    <a href="/blog/animales/">Tarea 7: Los animales y la pólvora</a>
+                </li>
+                <li>
+                    <a href="/blog/lideres/">Tarea 8: Liderazgos positivos y negativos</a>
+                </li>
+                <li>
+                    <a href="/blog/turismo/">Tarea 9: Turismo: presente y futuro</a>
+                </li>
+                <li>
+                    <a href="/blog/conclusión/">Tarea 10: Balance final: a modo de reflexión</a>
+                </li>
+            </ul>
+
+            <hr />
+
+        </main>
+        <Footer />
+    </body>
 </html>
