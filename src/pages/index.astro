@@ -7,6 +7,50 @@ import { getCollection } from 'astro:content';
 
 // Obtiene todas las tareas/entradas del blog ordenadas si es necesario
 const posts = await getCollection('blog');
+const titles = [
+    {
+        ref: "blog/preambulo/",
+        text: "Tarea 1: Preámbulo y Estructura de la Constitución de 1991"
+    },
+    {
+        ref: "blog/esfera/",
+        text: "Tarea 2: Esfera Pública y Esfera Privada"
+    },
+    {
+        ref: "blog/ambiente/",
+        text: "Tarea 3: Medioambiente, Museo Nacional y Chiribiquete"
+    },
+    {
+        ref: "blog/musica/",
+        text: "Tarea 4: Música y más en Colombia (Joe Arroyo y Octavio Mesa)"
+
+    },
+    {
+        ref: "blog/literatura/",
+        text: 'Tarea 5: Literatura ("Espuma y nada más" y Mario Mendoza)'
+    },
+    {
+        ref: "blog/mecanismos/",
+        text: "Tarea 6: Mecanismos de Protección de Derechos Humanos"
+    },
+    {
+        ref: "blog/animales/",
+        text: "Tarea 7: Los animales y la pólvora"
+    },
+    {
+        ref: "blog/lideres/",
+        text: "Tarea 8: Liderazgos positivos y negativos"
+    },
+    {
+        ref: "blog/turismo/",
+        text: "Tarea 9: Turismo: presente y futuro"
+    },
+    {
+        ref: "blog/conclusión/",
+        text: "Tarea 10: Balance final: a modo de reflexión"
+    }
+    
+]
 ---
 
 <!doctype html>
@@ -26,36 +70,9 @@ const posts = await getCollection('blog');
 
             <h2>Índice de Tareas</h2>
             <ul>
-                <li>
-                    <a href="/blog/preambulo/">Tarea 1: Preámbulo y Estructura de la Constitución de 1991</a>
-                </li>
-                <li>
-                    <a href="/blog/esfera/">Tarea 2: Esfera Pública y Esfera Privada</a>
-                </li>
-                <li>
-                    <a href="/blog/ambiente/">Tarea 3: Medioambiente, Museo Nacional y Chiribiquete</a>
-                </li>
-                <li>
-                    <a href="/blog/musica/">Tarea 4: Música y más en Colombia (Joe Arroyo y Octavio Mesa)</a>
-                </li>
-                <li>
-                    <a href="/blog/literatura/">Tarea 5: Literatura ("Espuma y nada más" y Mario Mendoza)</a>
-                </li>
-                <li>
-                    <a href="/blog/mecanismos/">Tarea 6: Mecanismos de Protección de Derechos Humanos</a>
-                </li>
-                <li>
-                    <a href="/blog/animales/">Tarea 7: Los animales y la pólvora</a>
-                </li>
-                <li>
-                    <a href="/blog/lideres/">Tarea 8: Liderazgos positivos y negativos</a>
-                </li>
-                <li>
-                    <a href="/blog/turismo/">Tarea 9: Turismo: presente y futuro</a>
-                </li>
-                <li>
-                    <a href="/blog/conclusión/">Tarea 10: Balance final: a modo de reflexión</a>
-                </li>
+                {
+                    titles.map(u => <li><a href={`${import.meta.env.BASE_URL}/${u.ref}`}>{u.text}</a></li>)
+                }
             </ul>
 
             <hr />
